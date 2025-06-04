@@ -38,7 +38,7 @@ body.light {
 }
 
 #searchIcon {
-    border: none;
+  border: none;
   background-color: #3467eb;
   color: white;
   padding: 9px 12px;
@@ -58,6 +58,7 @@ body.light {
   transition: width 0.35s ease, padding 0.35s ease, opacity 0.35s ease;
   font-size: 15px;
   font-family: inherit;
+  box-sizing: border-box;
 }
 
 #cityInput.visible {
@@ -77,6 +78,7 @@ body.light {
   margin-left: 11px;
   font-size: 14px;
   user-select: none;
+  box-sizing: border-box;
 }
 
 #toggleMode {
@@ -88,6 +90,7 @@ body.light {
   cursor: pointer;
   font-size: 14px;
   user-select: none;
+  box-sizing: border-box;
 }
 
 #weatherResult {
@@ -124,4 +127,61 @@ body.light #weatherResult {
 body.light .forecast .day {
   background-color: #e9eef5;
   color: var(--light-text);
+}
+
+@media (max-width: 1024px) {
+  .container {
+    width: 95%;
+    padding: 15px 10px;
+  }
+
+  .top-bar {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+  }
+
+  .search-box {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  #cityInput,
+  #cityInput.visible {
+    width: 100%;
+    margin-left: 0;
+    border-radius: 5px;
+    padding: 9px 12px;
+    font-size: 15px;
+    box-sizing: border-box;
+  }
+
+  #searchBtn {
+    width: 100%;
+    margin-left: 0;
+    margin-top: 8px;
+    padding: 9px 12px;
+    font-size: 15px;
+    box-sizing: border-box;
+  }
+
+  #toggleMode {
+    width: 100%;
+    padding: 9px 12px;
+    font-size: 15px;
+    box-sizing: border-box;
+  }
+
+  .forecast {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    justify-content: flex-start;
+    padding-bottom: 10px;
+  }
+
+  .forecast .day {
+    min-width: 120px;
+    flex: 0 0 auto;
+    font-size: 13px;
+  }
 }
