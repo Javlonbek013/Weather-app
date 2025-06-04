@@ -1,17 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Weather App</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body class="dark">
   <div class="container">
     <div class="top-bar">
       <div class="search-box">
-        <input type="text" id="cityInput" placeholder="Enter city" value="Uzbekistan">
-        <button onclick="getWeather()">Search</button>
+        <button id="searchIcon" aria-label="Search">🔍</button>
+        <input type="text" id="cityInput" placeholder="Enter city" value="Uzbekistan" />
+        <button id="searchBtn">Search</button>
       </div>
       <button id="toggleMode">☀️</button>
     </div>
