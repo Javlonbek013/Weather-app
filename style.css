@@ -42,7 +42,7 @@ body.light {
   background-color: #3467eb;
   color: white;
   padding: 9px 12px;
-  border-radius: 5px 0 0 5px;
+  border-radius: 5px;
   cursor: pointer;
   font-size: 19px;
 }
