@@ -1,11 +1,12 @@
-:root {
-  --dark-bg: #182230;
+
+  :root {
+  --dark-bg: #5678a8;
   --dark-text: #bbcae7;
-  --dark-card: #161f27;
+  --dark-card: #102333;
 
   --light-bg: #aec0d1;
   --light-text: #222;
-  --light-card: #e3e3e3;
+  --light-card: #ffffff;
 }
 
 body.dark {
@@ -39,10 +40,14 @@ body.light {
 
 #searchIcon {
   border: none;
-  background-color: #3467eb;
   color: white;
   padding: 9px 12px;
-  border-radius: 5px;
+  background: rgba(255, 255, 255, 0);
+  border-radius: 10px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(6.4px);
+  -webkit-backdrop-filter: blur(6.4px);
+  border: 1px solid rgba(255, 255, 255, 0.25);
   cursor: pointer;
   font-size: 19px;
 }
@@ -50,30 +55,40 @@ body.light {
 #cityInput {
   width: 0;
   padding: 0;
-  opacity: 0;
   margin-left: 6px;
   border: none;
-  border-radius: 0 5px 5px 0;
-  outline: none;
-  transition: width 0.35s ease, padding 0.35s ease, opacity 0.35s ease;
-  font-size: 15px;
-  font-family: inherit;
-  box-sizing: border-box;
+  background: rgba(255, 255, 255, 0);
+  border-radius: 7px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(6.4px);
+  -webkit-backdrop-filter: blur(6.4px);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  color: white;
+  opacity: 0;
+  visibility: hidden;
+  overflow: hidden;
+  transition: all 0.3s ease;
 }
 
 #cityInput.visible {
   width: 280px;
   padding: 8px 10px;
   opacity: 1;
+  visibility: visible;
   border: 1px solid #bbb;
 }
 
+
 #searchBtn {
-  background-color: #3467eb;
   color: white;
   border: none;
   padding: 9px 14px;
-  border-radius: 5px;
+  background: rgba(255, 255, 255, 0);
+  border-radius: 10px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(6.4px);
+  -webkit-backdrop-filter: blur(6.4px);
+  border: 1px solid rgba(255, 255, 255, 0.25);
   cursor: pointer;
   margin-left: 11px;
   font-size: 14px;
@@ -82,11 +97,15 @@ body.light {
 }
 
 #toggleMode {
-  background-color: #3467eb;
   color: white;
   border: none;
   padding: 10px 16px;
-  border-radius: 5px;
+  background: rgba(255, 255, 255, 0);
+  border-radius: 10px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(6.4px);
+  -webkit-backdrop-filter: blur(6.4px);
+  border: 1px solid rgba(255, 255, 255, 0.25);
   cursor: pointer;
   font-size: 14px;
   user-select: none;
@@ -150,38 +169,44 @@ body.light .forecast .day {
   #cityInput.visible {
     width: 100%;
     margin-left: 0;
-    border-radius: 5px;
-    padding: 9px 12px;
+    border-radius: 10px;
+    padding: 8px 10px;
     font-size: 15px;
     box-sizing: border-box;
+    background: rgba(255, 255, 255, 0);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(6.4px);
+    -webkit-backdrop-filter: blur(6.4px);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    color: white;
   }
 
   #searchBtn {
     width: 100%;
     margin-left: 0;
     margin-top: 8px;
-    padding: 9px 12px;
-    font-size: 15px;
+    padding: 9px 14px;
+    font-size: 14px;
     box-sizing: border-box;
-  }
-
-  #toggleMode {
-    width: 100%;
-    padding: 9px 12px;
-    font-size: 15px;
-    box-sizing: border-box;
+    color: white;
+    background: rgba(255, 255, 255, 0);
+    border-radius: 10px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
   }
 
   .forecast {
-    flex-wrap: nowrap;
+    flex-wrap: nowrap !important;
     overflow-x: auto;
+    overflow-y: hidden;
     justify-content: flex-start;
     padding-bottom: 10px;
+    -webkit-overflow-scrolling: touch;
   }
 
   .forecast .day {
-    min-width: 120px;
     flex: 0 0 auto;
-    font-size: 13px;
+    min-width: 128px;
+    max-width: 128px;
+    white-space: nowrap;
   }
 }
