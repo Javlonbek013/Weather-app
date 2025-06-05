@@ -1,4 +1,4 @@
-const apiKey = "c03d07a82eb04fd690f42624250406";
+const apiKey = "e35b1741ccbb485f8c8131031250506";
 
 async function getWeather() {
   const cityInput = document.getElementById("cityInput");
@@ -14,7 +14,7 @@ async function getWeather() {
   try {
     const res = await fetch(url);
     const data = await res.json();
-
+    console.log(data)
     if (data.error) {
       document.getElementById("weatherResult").innerHTML = "<p>City not found!</p>";
       return;
@@ -25,14 +25,16 @@ async function getWeather() {
     const forecast = data.forecast.forecastday;
 
     let html = `
-      <h2>${location.name}, ${location.country}</h2>
-      <h3>${current.temp_c}°C</h3>
-      <h3>Humidity: ${current.humidity}%</h3>
-      <p>${current.condition.text}</p>
-      <img src="${current.condition.icon}" alt="${current.condition.text}" />
-      <div style="margin-top:20px;"><h3>7-Day Forecast</h3></div>
-      <div class="forecast">
-    `;
+    <h2>${location.name}, ${location.country}</h2>
+    <h3>${current.temp_c}°C</h3>
+    <h3>Humidity: ${current.humidity}%</h3>
+    <h3>Wind: ${current.wind_kph} km/h</h3>
+    <p>${current.condition.text}</p>
+    <img src="${current.condition.icon}" alt="${current.condition.text}" />
+    <div style="margin-top:20px;"><h3>7-Day Forecast</h3></div>
+    <div class="forecast">
+  `;
+
 
     forecast.forEach(day => {
       html += `
@@ -40,6 +42,7 @@ async function getWeather() {
           <p>${day.date}</p>
           <img src="${day.day.condition.icon}" alt="${day.day.condition.text}" />
           <p>${day.day.avgtemp_c}°C</p>
+          <h3>Wind: ${day.day.maxwind_kph} km/h</h3>
           <p>Humidity: ${day.day.avghumidity}%</p>
           <p>${day.day.condition.text}</p>
         </div>
