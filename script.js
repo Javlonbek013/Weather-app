@@ -3,6 +3,7 @@ const apiKey = "c03d07a82eb04fd690f42624250406";
 async function getWeather() {
   const cityInput = document.getElementById("cityInput");
   const city = cityInput.value.trim();
+
   if (!city) {
     alert("Please enter a city");
     return;
@@ -19,9 +20,9 @@ async function getWeather() {
       return;
     }
 
-    let current = data.current;
-    let location = data.location;
-    let forecast = data.forecast.forecastday;
+    const current = data.current;
+    const location = data.location;
+    const forecast = data.forecast.forecastday;
 
     let html = `
       <h2>${location.name}, ${location.country}</h2>
@@ -39,7 +40,7 @@ async function getWeather() {
           <p>${day.date}</p>
           <img src="${day.day.condition.icon}" alt="${day.day.condition.text}" />
           <p>${day.day.avgtemp_c}°C</p>
-      <h3>Humidity: ${current.humidity}%</h3>
+          <p>Humidity: ${day.day.avghumidity}%</p>
           <p>${day.day.condition.text}</p>
         </div>
       `;
@@ -47,6 +48,7 @@ async function getWeather() {
 
     html += `</div>`;
     document.getElementById("weatherResult").innerHTML = html;
+
   } catch (error) {
     document.getElementById("weatherResult").innerHTML = "<p>Error fetching weather data.</p>";
     console.error(error);
@@ -77,6 +79,6 @@ document.getElementById("toggleMode").addEventListener("click", () => {
   icon.textContent = body.classList.contains("light") ? "🌙" : "☀️";
 });
 
-window.onload = () => {
+window.addEventListener("load", () => {
   getWeather();
-};
+});
