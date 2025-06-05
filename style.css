@@ -210,6 +210,8 @@ body.light .forecast .day {
     flex: 0 0 auto;
     min-width: 128px;
     max-width: 128px;
-    white-space: nowrap;
+    white-space: normal; 
+    word-wrap: break-word; 
+    overflow-wrap: break-word;
   }
 }
