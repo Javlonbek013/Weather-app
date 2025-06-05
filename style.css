@@ -8,6 +8,9 @@
   --light-text: #222;
   --light-card: #ffffff;
 }
+body {
+  font-family: 'Poppins', sans-serif;
+}
 
 body.dark {
   background: var(--dark-bg);
